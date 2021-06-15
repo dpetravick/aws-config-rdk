@@ -2466,7 +2466,7 @@ class rdk:
             # Create new package in temp directory, copy to rule directory
             # This copy avoids the archiver trying to include the output zip in itself
             s3_src_dir = os.path.join(os.getcwd(), rules_dir, rule_name, 'bin', 'Release', app_runtime, 'publish')
-            tmp_src = shutil.make_archive(os.path.join(tempfile.gettempdir(), rule_name), 'zip', s3_src_dir)
+            tmp_src = shutil.make_archive(os.path.join(tempfile.mkdtemp(), rule_name), 'zip', s3_src_dir)
             shutil.copy(tmp_src, package_file_dst)
             s3_src = os.path.abspath(package_file_dst)
             self.__delete_package_file(tmp_src)
@@ -2479,7 +2479,7 @@ class rdk:
 
             # zip rule code files and upload to s3 bucket
             s3_src_dir = os.path.join(os.getcwd(), rules_dir, rule_name)
-            tmp_src = shutil.make_archive(os.path.join(tempfile.gettempdir(), rule_name), 'zip', s3_src_dir)
+            tmp_src = shutil.make_archive(os.path.join(tempfile.mkdtemp(), rule_name), 'zip', s3_src_dir)
             shutil.copy(tmp_src, package_file_dst)
             s3_src = os.path.abspath(package_file_dst)
             self.__delete_package_file(tmp_src)
@@ -2791,7 +2791,7 @@ class rdk:
             # Create new package in temp directory, copy to rule directory
             # This copy avoids the archiver trying to include the output zip in itself
             s3_src_dir = os.path.join(os.getcwd(),rules_dir, rule_name,'bin','Release', app_runtime, 'publish')
-            tmp_src = shutil.make_archive(os.path.join(tempfile.gettempdir(), rule_name), 'zip', s3_src_dir)
+            tmp_src = shutil.make_archive(os.path.join(tempfile.mkdtemp(), rule_name), 'zip', s3_src_dir)
             shutil.copy(tmp_src, package_file_dst)
             s3_src = os.path.abspath(package_file_dst)
             self.__delete_package_file(tmp_src)
@@ -2804,7 +2804,7 @@ class rdk:
 
             #zip rule code files and upload to s3 bucket
             s3_src_dir = os.path.join(os.getcwd(), rules_dir, rule_name)
-            tmp_src = shutil.make_archive(os.path.join(tempfile.gettempdir(), rule_name), 'zip', s3_src_dir)
+            tmp_src = shutil.make_archive(os.path.join(tempfile.mkdtemp(), rule_name), 'zip', s3_src_dir)
             shutil.copy(tmp_src, package_file_dst)
             s3_src = os.path.abspath(package_file_dst)
             self.__delete_package_file(tmp_src)
